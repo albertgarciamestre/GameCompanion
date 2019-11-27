@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "652113505553",
+    "firebase_url": "https://gamecompanion-53805.firebaseio.com",
+    "project_id": "gamecompanion-53805",
+    "storage_bucket": "gamecompanion-53805.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652113505553:android:c126dffeb69e6cdd3af0b0",
+        "android_client_info": {
+          "package_name": "com.game.gamecompanion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652113505553-esariehgm0veq791641ivrgo0fsgo6qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAranxcX4DR1b00KkczR7KwBMpwLkznV7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652113505553-esariehgm0veq791641ivrgo0fsgo6qk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
