@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">AA2</string>
+    <string name="app_name">Deleteme</string>
+
+    <string name="tab_profile">Profile</string>
+    <string name="tab_chat">Chat</string>
+    <string name="tab_news">News</string>
+    <string name="tab_streams">Streams</string>
+
+    <string name="profile_register_button">Create Account</string>
+    <string name="username_register_text">Username</string>
+    <string name="email_register_text">Email</string>
+    <string name="password_register_text">Password</string>
+    <string name="create_register_button">CREATE</string>
+
+    <string name="register_error_invalid_username">Username required</string>
+
 </resources>
