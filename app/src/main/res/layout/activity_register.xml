@@ -8,6 +8,7 @@
     android:layout_margin="@dimen/margin_medium"
     android:gravity="center"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".activity.RegisterActivity">
 
     <EditText

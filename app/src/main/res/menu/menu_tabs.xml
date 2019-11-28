@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/chat" android:title="@string/tab_chat" android:icon="@drawable/ic_chat"/>
-    <item android:id="@+id/news" android:title="@string/tab_news" android:icon="@drawable/ic_news"/>
-    <item android:id="@+id/profile" android:title="@string/tab_profile" android:icon="@drawable/ic_profile"/>
-    <item android:id="@+id/streams" android:title="@string/tab_streams" android:icon="@drawable/ic_streams"/>
+
+    <item
+            android:id="@+id/news"
+            android:title="@string/tab_news"
+            android:icon="@drawable/ic_news"
+            />
+    <item
+            android:id="@+id/profile"
+            android:title="@string/tab_profile"
+            android:icon="@drawable/ic_profile"/>
+    <item
+            android:id="@+id/chat"
+            android:title="@string/tab_chat"
+            android:icon="@drawable/ic_chat"/>
 </menu>
