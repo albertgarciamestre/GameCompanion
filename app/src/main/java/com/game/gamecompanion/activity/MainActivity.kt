@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.game.gamecompanion.fragment.ProfileFragment
 import com.game.gamecompanion.R
+import com.game.gamecompanion.fragment.MessagesFragment
+import com.game.gamecompanion.fragment.NewsFragment
+import com.game.gamecompanion.masktransformation.MaskTransformation
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +18,12 @@ class MainActivity : AppCompatActivity() {
         my_toolbar.setLogo(null)
         my_toolbar.setTitle(null)
         setSupportActionBar(findViewById(R.id.my_toolbar))
+
+        Picasso.get()
+            .load(R.drawable.profile_test)
+            .transform(MaskTransformation(this, R.drawable.ic_profile_icon))
+            .into(Image_Test)
+
         bottomNavigationView.setItemIconTintList(null)
         bottomNavigationView.itemTextAppearanceInactive
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
@@ -21,10 +31,26 @@ class MainActivity : AppCompatActivity() {
                 R.id.chat -> {
                     my_toolbar.setLogo(R.drawable.ic_messages_selected)
                     my_toolbar.setTitle("MESSAGES")
+
+                    //Create Fragment
+                    val profileFragment = MessagesFragment()
+
+                    //Add/Replace Fragment
+                    val fragmentTransaction = supportFragmentManager.beginTransaction()
+                    fragmentTransaction.replace(fragmentContainer.id, MessagesFragment())
+                    fragmentTransaction.commit()
                 }
                 R.id.news -> {
                     my_toolbar.setLogo(R.drawable.ic_home_selected)
                     my_toolbar.setTitle("NEWS")
+
+                    //Create Fragment
+                    val profileFragment = NewsFragment()
+
+                    //Add/Replace Fragment
+                    val fragmentTransaction = supportFragmentManager.beginTransaction()
+                    fragmentTransaction.replace(fragmentContainer.id, NewsFragment())
+                    fragmentTransaction.commit()
                 }
                 R.id.profile -> {
                     my_toolbar.setLogo(R.drawable.ic_profile_selected)
@@ -34,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
                     //Add/Replace Fragment
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
-                    fragmentTransaction.add(fragmentContainer.id, profileFragment)
+                    fragmentTransaction.replace(fragmentContainer.id, profileFragment)
                     fragmentTransaction.commit()
                 }
             }
