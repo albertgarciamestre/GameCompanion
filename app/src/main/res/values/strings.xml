@@ -11,6 +11,7 @@
     <string name="email_register_text">Email</string>
     <string name="password_register_text">Password</string>
     <string name="create_register_button">CREATE</string>
+    <string name="login_button">LOGIN</string>
 
     <string name="register_error_invalid_username">Username required</string>
 

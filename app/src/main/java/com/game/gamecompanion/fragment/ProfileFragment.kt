@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.gamecompanion.R
+import com.game.gamecompanion.activity.LogInActivity
 import com.game.gamecompanion.activity.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -80,6 +81,11 @@ class ProfileFragment : Fragment() {
     private fun initUI(){
         if(FirebaseAuth.getInstance().currentUser == null) {
             logoutButton.visibility = View.GONE
+            logInButton.visibility = View.VISIBLE
+            logInButton.setOnClickListener {
+                //Open Register Activity
+                startActivity(Intent(requireContext(), LogInActivity::class.java))
+            }
             registerButton.visibility = View.VISIBLE
             registerButton.setOnClickListener {
                 //Open Register Activity
@@ -88,6 +94,7 @@ class ProfileFragment : Fragment() {
         } else{
             // TODO: Show Profile
             registerButton.visibility = View.GONE
+            logInButton.visibility = View.GONE
             logoutButton.visibility = View.VISIBLE
             logoutButton.setOnClickListener{
                 FirebaseAuth.getInstance().signOut()
