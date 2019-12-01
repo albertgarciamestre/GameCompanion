@@ -44,16 +44,9 @@ class LogInActivity : AppCompatActivity() {
                 .addOnSuccessListener {authResult ->
 
                     FirebaseAnalytics.getInstance(this).logEvent("IniciandoSesion",null)
-
-                    // Create User Profile
-                    val user = UserModel(
-                        id = authResult.user?.uid,
-                        email = email,
-                        username = "None"
-                    )
                     FirebaseFirestore.getInstance().collection("users")
                         .document(authResult.user?.uid ?: "")
-                        .set(user)
+                        .get()
                         .addOnSuccessListener {
                             // Success!
                             Toast.makeText(emailloginText.context, "OK!", Toast.LENGTH_LONG).show()

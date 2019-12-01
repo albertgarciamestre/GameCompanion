@@ -11,6 +11,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,11 +26,6 @@ class MainActivity : AppCompatActivity() {
         my_toolbar.setLogo(null)
         my_toolbar.setTitle(null)
         setSupportActionBar(findViewById(R.id.my_toolbar))
-
-        Picasso.get()
-            .load(R.drawable.profile_test)
-            .transform(MaskTransformation(this, R.drawable.ic_profile_icon))
-            .into(Image_Test)
 
         bottomNavigationView.setItemIconTintList(null)
         bottomNavigationView.itemTextAppearanceInactive
@@ -62,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile -> {
                     my_toolbar.setLogo(R.drawable.ic_profile_selected)
                     my_toolbar.setTitle("PROFILE")
+
                     //Create Fragment
                     val profileFragment = ProfileFragment()
 

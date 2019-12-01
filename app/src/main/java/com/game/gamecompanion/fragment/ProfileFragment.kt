@@ -11,8 +11,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.gamecompanion.R
 import com.game.gamecompanion.activity.LogInActivity
+import com.game.gamecompanion.activity.MainActivity
 import com.game.gamecompanion.activity.RegisterActivity
+import com.game.gamecompanion.masktransformation.MaskTransformation
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -80,6 +84,7 @@ class ProfileFragment : Fragment() {
 
     private fun initUI(){
         if(FirebaseAuth.getInstance().currentUser == null) {
+            userProfileContent.visibility = View.GONE
             logoutButton.visibility = View.GONE
             logInButton.visibility = View.VISIBLE
             logInButton.setOnClickListener {
@@ -93,6 +98,17 @@ class ProfileFragment : Fragment() {
             }
         } else{
             // TODO: Show Profile
+            Picasso.get()
+                .load(R.drawable.profile_test)
+                .transform(MaskTransformation(requireContext(), R.drawable.ic_profile_icon))
+                .into(Image_Test)
+            userProfileContent.visibility = View.VISIBLE
+
+            val user = FirebaseAuth.getInstance().currentUser
+            user?.let {
+                val name = user.email
+                ProfileName.setText(name.toString())
+            }
             registerButton.visibility = View.GONE
             logInButton.visibility = View.GONE
             logoutButton.visibility = View.VISIBLE
