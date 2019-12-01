@@ -78,22 +78,6 @@ class NewsFragment : Fragment() {
     }
 
     private fun initUI(){
-        if(FirebaseAuth.getInstance().currentUser == null) {
-            logoutButton.visibility = View.GONE
-            registerButton.visibility = View.VISIBLE
-            registerButton.setOnClickListener {
-                //Open Register Activity
-                startActivity(Intent(requireContext(), RegisterActivity::class.java))
-            }
-        } else{
-            // TODO: Show Profile
-            registerButton.visibility = View.GONE
-            logoutButton.visibility = View.VISIBLE
-            logoutButton.setOnClickListener{
-                FirebaseAuth.getInstance().signOut()
-                // TODO: Show success to user
-                initUI()
-            }
-        }
+
     }
 }
