@@ -6,6 +6,7 @@ import android.util.Patterns
 import android.widget.Toast
 import com.game.gamecompanion.model.UserModel
 import com.game.gamecompanion.R
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -45,6 +46,8 @@ class RegisterActivity : AppCompatActivity() {
             // Send to Firebase
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener {authResult ->
+
+                    FirebaseAnalytics.getInstance(this).logEvent("CreandoUsuario",null)
 
                     // Create User Profile
                     val user = UserModel(
