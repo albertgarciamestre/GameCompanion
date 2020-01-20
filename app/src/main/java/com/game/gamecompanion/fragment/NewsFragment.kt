@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.gamecompanion.R
 import com.game.gamecompanion.activity.RegisterActivity
-import com.game.gamecompanion.model.StreamsResponse
+import com.game.gamecompanion.model.TWStreamsResponse
 import com.game.gamecompanion.network.TwitchApiService
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.Response
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 
 
@@ -55,29 +55,24 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.i("ProfileFragment", "++ onViewCreated ++")
 
-        TwitchApiService.endpoints.getStreams().enqueue(object: retrofit2.Callback<StreamsResponse>
-        {
-            override fun onFailure(call: retrofit2.Call<StreamsResponse>, t: Throwable) {
-                Log.w("newsFragment", t)
+        TwitchApiService.service.getStreams().enqueue(object : Callback<TWStreamsResponse> {
+            override fun onResponse(call: Call<TWStreamsResponse>, response: Response<TWStreamsResponse>) {
+                response.body()?.data?.let { streams ->
+                    for (stream in streams) {
+                        Log.i("MainActivity", "Title: ${stream.title} and image: ${stream.imageUrl} and username: ${stream.username} and viewers: ${stream.viewerCount}")
+                        Log.i("MainActivity", "Stream Url: https://www.twitch.tv/${stream.username}")
+                    }
+                }
             }
 
-            override fun onResponse(
-                call: retrofit2.Call<StreamsResponse>,
-                response: retrofit2.Response<StreamsResponse>
-            ) {
-                if(response.isSuccessful)
-                {
-                    //All Good
-                    Log.i("NewsFragment", response.body()?.toString() ?: "Null body")
-                }
-                else
-                {
-                    //Not OK
-                    Log.w("newsFrragment", response.message())
-                }
+            override fun onFailure(call: Call<TWStreamsResponse>, t: Throwable) {
+                t.printStackTrace()
             }
 
         })
+
+
+
         initUI()
     }
 
