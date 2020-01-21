@@ -23,10 +23,31 @@ class MainActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
 
         adView.loadAd(adRequest)
-        my_toolbar.setLogo(null)
-        my_toolbar.setTitle(null)
-        setSupportActionBar(findViewById(R.id.my_toolbar))
+        //setSupportActionBar(findViewById(R.id.my_toolbar))
 
+        my_toolbar.setLogo(R.drawable.ic_home_selected)
+        my_toolbar.setTitle("NEWS")
+
+        //Create Fragment
+        val profileFragment = NewsFragment()
+
+        //Add/Replace Fragment
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(fragmentContainer.id, NewsFragment())
+        fragmentTransaction.commit()
+        my_toolbar.menu.getItem(0).setOnMenuItemClickListener {
+            my_toolbar.setLogo(R.drawable.ic_messages_selected)
+            my_toolbar.setTitle("MESSAGES")
+            my_toolbar.menu.getItem(0).setVisible(false)
+
+            //Create Fragment
+            val profileFragment = MessagesFragment()
+
+            //Add/Replace Fragment
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(fragmentContainer.id, MessagesFragment())
+            fragmentTransaction.commit()
+        true}
         bottomNavigationView.setItemIconTintList(null)
         bottomNavigationView.itemTextAppearanceInactive
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
@@ -34,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.chat -> {
                     my_toolbar.setLogo(R.drawable.ic_messages_selected)
                     my_toolbar.setTitle("MESSAGES")
+                    my_toolbar.menu.getItem(0).setVisible(false)
 
                     //Create Fragment
                     val profileFragment = MessagesFragment()
@@ -46,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.news -> {
                     my_toolbar.setLogo(R.drawable.ic_home_selected)
                     my_toolbar.setTitle("NEWS")
+                    my_toolbar.menu.getItem(0).setVisible(true)
 
                     //Create Fragment
                     val profileFragment = NewsFragment()
@@ -58,6 +81,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile -> {
                     my_toolbar.setLogo(R.drawable.ic_profile_selected)
                     my_toolbar.setTitle("PROFILE")
+                    my_toolbar.menu.getItem(0).setVisible(false)
+
 
                     //Create Fragment
                     val profileFragment = ProfileFragment()

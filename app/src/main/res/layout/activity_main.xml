@@ -17,6 +17,7 @@
             android:elevation="4dp"
             android:textAlignment="viewStart"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:menu="@menu/stream_button"
             app:logo="@drawable/ic_profile_selected"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="PROFILE"
