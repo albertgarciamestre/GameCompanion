@@ -6,6 +6,7 @@ import com.game.gamecompanion.fragment.ProfileFragment
 import com.game.gamecompanion.R
 import com.game.gamecompanion.fragment.MessagesFragment
 import com.game.gamecompanion.fragment.NewsFragment
+import com.game.gamecompanion.fragment.StreamsFragment
 import com.game.gamecompanion.masktransformation.MaskTransformation
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
@@ -36,17 +37,35 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(fragmentContainer.id, NewsFragment())
         fragmentTransaction.commit()
         my_toolbar.menu.getItem(0).setOnMenuItemClickListener {
-            my_toolbar.setLogo(R.drawable.ic_messages_selected)
-            my_toolbar.setTitle("MESSAGES")
-            my_toolbar.menu.getItem(0).setVisible(false)
+            if(my_toolbar.title == "STREAMS")
+            {
+                my_toolbar.setLogo(R.drawable.ic_home_selected)
+                my_toolbar.setTitle("NEWS")
+                my_toolbar.menu.getItem(0).setIcon(R.drawable.ic_twitch)
+                my_toolbar.menu.getItem(0).setVisible(true)
 
-            //Create Fragment
-            val profileFragment = MessagesFragment()
+                //Create Fragment
+                val profileFragment = NewsFragment()
 
-            //Add/Replace Fragment
-            val fragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(fragmentContainer.id, MessagesFragment())
-            fragmentTransaction.commit()
+                //Add/Replace Fragment
+                val fragmentTransaction = supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(fragmentContainer.id, NewsFragment())
+                fragmentTransaction.commit()
+            }
+            else {
+                my_toolbar.setLogo(R.drawable.ic_twitch)
+                my_toolbar.setTitle("STREAMS")
+                my_toolbar.menu.getItem(0).setIcon(R.drawable.ic_left_arrow)
+                my_toolbar.menu.getItem(0).setVisible(true)
+
+                //Create Fragment
+                val profileFragment = StreamsFragment()
+
+                //Add/Replace Fragment
+                val fragmentTransaction = supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(fragmentContainer.id, StreamsFragment())
+                fragmentTransaction.commit()
+            }
         true}
         bottomNavigationView.setItemIconTintList(null)
         bottomNavigationView.itemTextAppearanceInactive
@@ -55,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.chat -> {
                     my_toolbar.setLogo(R.drawable.ic_messages_selected)
                     my_toolbar.setTitle("MESSAGES")
+                    my_toolbar.menu.getItem(0).setIcon(R.drawable.ic_twitch)
                     my_toolbar.menu.getItem(0).setVisible(false)
 
                     //Create Fragment
@@ -68,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.news -> {
                     my_toolbar.setLogo(R.drawable.ic_home_selected)
                     my_toolbar.setTitle("NEWS")
+                    my_toolbar.menu.getItem(0).setIcon(R.drawable.ic_twitch)
                     my_toolbar.menu.getItem(0).setVisible(true)
 
                     //Create Fragment
@@ -81,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile -> {
                     my_toolbar.setLogo(R.drawable.ic_profile_selected)
                     my_toolbar.setTitle("PROFILE")
+                    my_toolbar.menu.getItem(0).setIcon(R.drawable.ic_twitch)
                     my_toolbar.menu.getItem(0).setVisible(false)
 
 
