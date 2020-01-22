@@ -55,22 +55,6 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.i("ProfileFragment", "++ onViewCreated ++")
 
-        TwitchApiService.service.getStreams().enqueue(object : Callback<TWStreamsResponse> {
-            override fun onResponse(call: Call<TWStreamsResponse>, response: Response<TWStreamsResponse>) {
-                response.body()?.data?.let { streams ->
-                    for (stream in streams) {
-                        Log.i("MainActivity", "Title: ${stream.title} and image: ${stream.imageUrl} and username: ${stream.username} and viewers: ${stream.viewerCount}")
-                        Log.i("MainActivity", "Stream Url: https://www.twitch.tv/${stream.username}")
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<TWStreamsResponse>, t: Throwable) {
-                t.printStackTrace()
-            }
-
-        })
-
 
 
         initUI()

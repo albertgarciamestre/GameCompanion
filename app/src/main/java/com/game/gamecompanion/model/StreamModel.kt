@@ -15,7 +15,7 @@ data class StreamModel(
 ) {
     val imageUrl: String?
         get() {
-            return thumbnail_url?.replace("{width}x{height}", "512x288")
+            return thumbnail_url?.replace("{width}x{height}", "768x432")
         }
 }
 

@@ -11,6 +11,7 @@ import com.squareup.picasso.Transformation
 
 class MaskTransformation(
     private val context: Context,
+    var widthBorder : Int,
     @DrawableRes private val maskID: Int
 ) : Transformation {
 
@@ -21,7 +22,7 @@ class MaskTransformation(
     override fun transform(source: Bitmap): Bitmap {
         val width = source.width
         val height = source.height
-        val borderWidth = 150
+        val borderWidth = widthBorder
 
         val output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(output)

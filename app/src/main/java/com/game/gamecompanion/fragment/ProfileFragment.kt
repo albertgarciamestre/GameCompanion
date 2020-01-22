@@ -100,7 +100,7 @@ class ProfileFragment : Fragment() {
             // TODO: Show Profile
             Picasso.get()
                 .load(R.drawable.profile_test)
-                .transform(MaskTransformation(requireContext(), R.drawable.ic_profile_icon))
+                .transform(MaskTransformation(requireContext(), 150, R.drawable.ic_profile_icon))
                 .into(Image_Test)
             userProfileContent.visibility = View.VISIBLE
 

@@ -10,12 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.gamecompanion.R
-import com.game.gamecompanion.activity.RegisterActivity
+//import com.game.gamecompanion.GlideMoudule.MyAppGlideModule
+import com.game.gamecompanion.masktransformation.MaskTransformation
 import com.game.gamecompanion.model.TWStreamsResponse
 import com.game.gamecompanion.network.TwitchApiService
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_streams.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,12 +58,19 @@ class StreamsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.i("ProfileFragment", "++ onViewCreated ++")
 
+
         TwitchApiService.service.getStreams().enqueue(object : Callback<TWStreamsResponse> {
             override fun onResponse(call: Call<TWStreamsResponse>, response: Response<TWStreamsResponse>) {
                 response.body()?.data?.let { streams ->
                     for (stream in streams) {
                         Log.i("MainActivity", "Title: ${stream.title} and image: ${stream.imageUrl} and username: ${stream.username} and viewers: ${stream.viewerCount}")
                         Log.i("MainActivity", "Stream Url: https://www.twitch.tv/${stream.username}")
+
+
+                        Picasso.get()
+                            .load(stream.imageUrl)
+                            .transform(MaskTransformation(requireContext(), 20, R.drawable.ic_streams_background))
+                            .into(ImageStream1)
                     }
                 }
             }
