@@ -1,42 +1,800 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/streams_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:padding="@dimen/margin_medium"
         android:orientation="vertical"
+        android:padding="@dimen/margin_medium"
         tools:context=".fragment.ProfileFragment">
 
 
-    <FrameLayout
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="326dp">
+            android:layout_height="match_parent">
 
-        <ImageView
-                android:id="@+id/ProfBackTest"
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                android:layout_marginTop="@android:dimen/notification_large_icon_height"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:scaleType="fitXY"
-                android:translationY="20dp"
-                android:visibility="visible"
-                app:srcCompat="@drawable/ic_streams_background" />
+            <FrameLayout
+                    android:id="@+id/stream_layout_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
 
-        <ImageView
-                android:id="@+id/ImageStream1"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:adjustViewBounds="false"
-                android:scaleType="fitXY"/>
+                <Button
+                        android:id="@+id/streamer0"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
 
-    </FrameLayout>
+                <Button
+                        android:id="@+id/viewers0"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream0"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream0"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers1"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream1"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream1"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer2"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers2"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream2"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream2"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer3"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers3"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream3"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream3"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer4"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers4"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream4"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream4"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer5"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers5"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream5"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream5"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer6"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers6"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream6"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream6"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer7"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers7"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream7"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream7"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer8"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers8"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream8"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream8"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:id="@+id/stream_layout_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="326dp">
+
+                <Button
+                        android:id="@+id/streamer9"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/button_item_height"
+                        android:layout_marginRight="@dimen/button_item_height"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="STREAMER"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="32dp"
+                        android:visibility="visible" />
+
+                <Button
+                        android:id="@+id/viewers9"
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginRight="150dp"
+                        android:background="@drawable/ic_button"
+                        android:clickable="false"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:translationY="60dp"
+                        android:visibility="visible" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:scaleType="fitXY"
+                        android:translationY="20dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_streams_background" />
+
+                <ImageView
+                        android:id="@+id/ImageStream9"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:adjustViewBounds="false"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:scaleType="fitXY" />
+
+                <TextView
+                        android:id="@+id/title_stream9"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_marginRight="@dimen/browser_actions_context_menu_min_padding"
+                        android:layout_weight="1"
+                        android:ellipsize="none"
+                        android:maxLines="100"
+                        android:scrollHorizontally="false"
+                        android:text="Title"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                        android:textSize="24sp"
+                        android:translationY="245dp"
+                        app:autoSizeTextType="uniform" />
+
+            </FrameLayout>
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
-</LinearLayout>
+</RelativeLayout>
