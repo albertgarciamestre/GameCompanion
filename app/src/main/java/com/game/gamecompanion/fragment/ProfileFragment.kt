@@ -3,7 +3,9 @@ package com.game.gamecompanion.fragment
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,11 +16,19 @@ import com.game.gamecompanion.activity.LogInActivity
 import com.game.gamecompanion.activity.MainActivity
 import com.game.gamecompanion.activity.RegisterActivity
 import com.game.gamecompanion.masktransformation.MaskTransformation
+import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_streams.*
+import java.io.File
+
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -98,16 +108,45 @@ class ProfileFragment : Fragment() {
             }
         } else{
             // TODO: Show Profile
-            Picasso.get()
-                .load(R.drawable.profile_test)
-                .transform(MaskTransformation(requireContext(), 150, R.drawable.ic_profile_icon))
-                .into(Image_Test)
             userProfileContent.visibility = View.VISIBLE
 
+            val usersStorageReference = FirebaseStorage.getInstance().getReference("Imges")
             val user = FirebaseAuth.getInstance().currentUser
             user?.let {
-                val name = user.email
-                ProfileName.setText(name.toString())
+                FirebaseFirestore.getInstance().collection("users")
+                    .document(user.uid ?: "")
+                    .get()
+                    .addOnSuccessListener {documentSnapshot ->
+                        val document = documentSnapshot
+                        val name = document["username"]
+                        ProfileName.setText(name.toString())
+                        profile_description.setText(document["Description"].toString())
+                        val avatarStorageReference = FirebaseStorage.getInstance().getReference(document["avatarUrl"].toString())
+                        avatarStorageReference.downloadUrl.addOnSuccessListener{}.addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                // Got URL!!
+                                val downloadUri = task.result
+                                Log.w("ProfileFragment", "downloadUri: ${downloadUri}")
+                                // TODO: Save to user profile
+                                Picasso.get()
+                                    .load(downloadUri.toString())
+                                    .transform(MaskTransformation(requireContext(), 150, R.drawable.ic_profile_icon))
+                                    .into(Image_Test)
+
+                            }
+
+                        }
+
+                        Image_Test.setOnClickListener()
+                        {
+                            uploadToCloud()
+                        }
+
+
+
+
+                    }
+
             }
             registerButton.visibility = View.GONE
             logInButton.visibility = View.GONE
@@ -118,5 +157,49 @@ class ProfileFragment : Fragment() {
                 initUI()
             }
         }
+    }
+    private fun uploadToCloud(){
+        Log.i("ProfileFragment", "File upload success!")
+        // Get Download Url
+        //Pictures/Layou_River.jpg
+        //val file = File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.toString() + "/" + "Layou_River.jpg")
+        //Log.i("ProfileFragment", file.path.toString())
+
+        /*val uri = Uri.fromFile(file)
+
+        val uploadTask = avatarStorageReference.putFile(uri)
+        uploadTask .addOnSuccessListener {
+            // All good!
+            Log.i("ProfileFragment", "File upload success!")
+        }
+            .addOnFailureListener {
+                // Handle unsuccessful uploads
+                Log.w("ProfileFragment", "Error uploading file :(")
+            }*/
+
+
+        /*val urlTask = uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            return@Continuation avatarStorageReference.downloadUrl
+        }).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // Got URL!!
+                val downloadUri = task.result
+                Log.w("ProfileFragment", "downloadUri: ${downloadUri}")
+                // TODO: Save to user profile
+                Picasso.get()
+                    .load(downloadUri.toString())
+                    .transform(MaskTransformation(requireContext(), 150, R.drawable.ic_profile_icon))
+                    .into(Image_Test)
+
+            } else {
+                // Handle failures
+                Log.w("ProfileFragment", "Error getting download url :( " + task.exception?.message)
+            }
+        }*/
     }
 }

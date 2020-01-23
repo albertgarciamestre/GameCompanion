@@ -4,7 +4,8 @@ data class UserModel(
     val username: String?,
     val email: String?,
 
-    val avatarUrl: String? = null
+    val avatarUrl: String?,
+    val Description: String?
 )
 {}
 

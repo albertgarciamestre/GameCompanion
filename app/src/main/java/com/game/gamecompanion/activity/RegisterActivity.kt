@@ -53,7 +53,9 @@ class RegisterActivity : AppCompatActivity() {
                     val user = UserModel(
                         id = authResult.user?.uid,
                         email = email,
-                        username = username
+                        username = username,
+                        avatarUrl = "Imges/default_profile.png",
+                        Description = "I want a description of me!!!"
                     )
                     FirebaseFirestore.getInstance().collection("users")
                         .document(authResult.user?.uid ?: "")

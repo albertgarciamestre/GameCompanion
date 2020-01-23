@@ -38,7 +38,6 @@ class LogInActivity : AppCompatActivity() {
                 Toast.makeText(emailloginText.context, "Password must be at least 4 characters and 1 letter and 1 digit", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-
             // Send to Firebase
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {authResult ->
@@ -48,6 +47,8 @@ class LogInActivity : AppCompatActivity() {
                         .document(authResult.user?.uid ?: "")
                         .get()
                         .addOnSuccessListener {
+
+
                             // Success!
                             Toast.makeText(emailloginText.context, "OK!", Toast.LENGTH_LONG).show()
 
