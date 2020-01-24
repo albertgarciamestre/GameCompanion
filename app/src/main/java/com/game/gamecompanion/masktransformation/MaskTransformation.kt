@@ -20,8 +20,9 @@ class MaskTransformation(
     }
 
     override fun transform(source: Bitmap): Bitmap {
-        val width = source.width
-        val height = source.height
+        var width = source.width
+        var height = source.height
+        if(widthBorder == 100) height = width
         val borderWidth = widthBorder
 
         val output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
@@ -40,7 +41,7 @@ class MaskTransformation(
         val maskingPaint = Paint()
         maskingPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
         val maskDrawable = ContextCompat.getDrawable(context, maskID)!!
-        maskDrawable.setBounds(borderWidth / 2, borderWidth / 2, width - borderWidth / 2, height - borderWidth / 3)
+        maskDrawable.setBounds(borderWidth / 2, borderWidth / 2, width - borderWidth / 2, height - borderWidth / 2)
 
         val overlayBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val overlayCanvas = Canvas(overlayBitmap)
@@ -59,8 +60,9 @@ class MaskTransformation(
         )
 
         overlayCanvas.drawBitmap(pictureBitmap, (borderWidth / 2).toFloat(), (borderWidth / 2).toFloat(), maskingPaint)
-
-        canvas.drawBitmap(overlayBitmap, 0f, 0f, Paint())
+        var top = 0f
+        if(borderWidth == 100) top = 10f
+        canvas.drawBitmap(overlayBitmap, 0f, top, Paint())
 
         source.recycle()
 

@@ -130,7 +130,7 @@ class ProfileFragment : Fragment() {
                                 // TODO: Save to user profile
                                 Picasso.get()
                                     .load(downloadUri.toString())
-                                    .transform(MaskTransformation(requireContext(), 150, R.drawable.ic_profile_icon))
+                                    .transform(MaskTransformation(requireContext(), 100, R.drawable.ic_profile_icon))
                                     .into(Image_Test)
 
                             }
@@ -159,13 +159,13 @@ class ProfileFragment : Fragment() {
         }
     }
     private fun uploadToCloud(){
-        Log.i("ProfileFragment", "File upload success!")
+        //Log.i("ProfileFragment", "File upload success!")
         // Get Download Url
         //Pictures/Layou_River.jpg
-        //val file = File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.toString() + "/" + "Layou_River.jpg")
-        //Log.i("ProfileFragment", file.path.toString())
-
-        /*val uri = Uri.fromFile(file)
+        val file = File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.toString() + "/" + "Layou_River.jpg")
+        Log.i("ProfileFragment", file.path.toString())
+        val avatarStorageReference = FirebaseStorage.getInstance().getReference("Imges/${file.name}")
+        val uri = Uri.fromFile(file)
 
         val uploadTask = avatarStorageReference.putFile(uri)
         uploadTask .addOnSuccessListener {
@@ -175,10 +175,10 @@ class ProfileFragment : Fragment() {
             .addOnFailureListener {
                 // Handle unsuccessful uploads
                 Log.w("ProfileFragment", "Error uploading file :(")
-            }*/
+            }
 
 
-        /*val urlTask = uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+        val urlTask = uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
             if (!task.isSuccessful) {
                 task.exception?.let {
                     throw it
@@ -200,6 +200,6 @@ class ProfileFragment : Fragment() {
                 // Handle failures
                 Log.w("ProfileFragment", "Error getting download url :( " + task.exception?.message)
             }
-        }*/
+        }
     }
 }

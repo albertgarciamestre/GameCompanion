@@ -104,9 +104,10 @@
             android:text="LOGIN"/>
 
     <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_item_height"
-        android:text="LOGOUT"/>
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_item_height"
+            android:background="@drawable/ic_button"
+            android:text="LOGOUT" />
 
 </LinearLayout>
