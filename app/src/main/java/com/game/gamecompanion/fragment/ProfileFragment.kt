@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.game.gamecompanion.R
@@ -150,6 +151,30 @@ class ProfileFragment : Fragment() {
                             showPictureDialog()
                         }
 
+                        EdirProfBtn.setOnClickListener()
+                        {
+                            FirebaseFirestore.getInstance().collection("users")
+                                .document(user.uid ?: "")
+                                .update("username",ProfileName.text.toString())
+                                .addOnSuccessListener {
+                                    // Success!
+                                    Toast.makeText(requireContext(), "Username updated to actual one: ${ProfileName.text} ", Toast.LENGTH_LONG).show()
+                                }
+                        }
+
+                        PublishProfBtn.setOnClickListener()
+                        {
+                            FirebaseFirestore.getInstance().collection("users")
+                                .document(user.uid ?: "")
+                                .update("Description",profile_description.text.toString())
+                                .addOnSuccessListener {
+                                    // Success!
+                                    Toast.makeText(requireContext(), "Description updated to the actual one", Toast.LENGTH_LONG).show()
+                                }
+                        }
+
+
+
 
 
 
@@ -166,6 +191,7 @@ class ProfileFragment : Fragment() {
             }
         }
     }
+
 
     private fun showPictureDialog() {
         val pictureDialog = AlertDialog.Builder(requireContext())

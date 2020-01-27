@@ -11,13 +11,13 @@
     <RelativeLayout
             android:id="@+id/userProfileContent"
             android:layout_width="match_parent"
-            android:layout_height="430dp"
+            android:layout_height="300dp"
             android:orientation="horizontal">
 
         <ImageView
                 android:id="@+id/ProfBackTest"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="100dp"
                 android:clickable="true"
                 android:scaleType="centerCrop"
                 android:visibility="visible"
@@ -25,14 +25,14 @@
 
         <Button
                 android:id="@+id/EdirProfBtn"
-                android:layout_width="150dp"
+                android:layout_width="190dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_button"
-                android:text="EDIT USERNAME"
+                android:text="UPDATE USERNAME"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:translationX="220dp"
-                android:translationY="240dp"
+                android:translationX="180dp"
+                android:translationY="110dp"
                 android:visibility="visible" />
 
         <Button
@@ -40,11 +40,11 @@
                 android:layout_width="210dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_button"
-                android:text="PUBLISH DESCRIPTION"
+                android:text="UPDATE DESCRIPTION"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:translationX="160dp"
-                android:translationY="290dp"
+                android:translationY="160dp"
                 android:visibility="visible" />
 
         <ImageView
@@ -52,34 +52,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="fitXY"
-                android:translationY="230dp"
+                android:translationY="100dp"
                 app:srcCompat="@drawable/ic_descriptionbackground"></ImageView>
 
-        <TextView
+        <EditText
                 android:id="@+id/profile_description"
                 android:layout_width="350dp"
-                android:layout_height="90dp"
+                android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat"
                 android:textSize="16sp"
-                android:translationY="330dp"></TextView>
+                android:translationY="200dp"></EditText>
 
-        <TextView
+        <EditText
                 android:id="@+id/ProfileName"
                 android:layout_width="140dp"
-                android:layout_height="24dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:text="PROFILE"
+                android:inputType="textNoSuggestions"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:translationX="15dp"
-                android:translationY="300dp"
-                app:autoSizeTextType="uniform"></TextView>
+                android:translationY="170dp"
+                app:autoSizeTextType="uniform"></EditText>
 
         <ImageView
                 android:id="@+id/Image_Test"
@@ -87,21 +88,26 @@
                 android:layout_height="150dp"
                 android:clickable="true"
                 android:translationX="@dimen/browser_actions_context_menu_min_padding"
-                android:translationY="150dp"
-                android:visibility="visible" />
+                android:translationY="20dp"
+                android:visibility="visible" /><![CDATA[
+
         >
+    ]]>
     </RelativeLayout>
 
     <Button
-        android:id="@+id/registerButton"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_item_height"
-        android:text="@string/profile_register_button"/>
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_item_height"
+            android:background="@drawable/ic_button"
+            android:text="@string/profile_register_button" />
+
     <Button
             android:id="@+id/logInButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_item_height"
-            android:text="LOGIN"/>
+            android:background="@drawable/ic_button"
+            android:text="LOGIN" />
 
     <Button
             android:id="@+id/logoutButton"
