@@ -9,12 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.game.gamecompanion.Adapter.Newsadapter
 import com.game.gamecompanion.R
 import com.game.gamecompanion.activity.RegisterActivity
+import com.game.gamecompanion.model.NewsModel
 import com.game.gamecompanion.model.StreamsResponse
 import com.game.gamecompanion.network.TwitchApiService
+import com.google.android.gms.common.internal.Constants
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_news.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import okhttp3.Call
 import okhttp3.Callback
@@ -31,16 +37,19 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
+
 class NewsFragment : Fragment() {
+
+    private val adapter= Newsadapter(emptyList())
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.i("ProfileFragment", "++ onAttach ++")
+        Log.i("NewsFragment", "++ onAttach ++")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i("ProfileFragment", "++ onCreate ++")
+        Log.i("NewsFragment", "++ onCreate ++")
     }
 
     override fun onCreateView(
@@ -53,59 +62,50 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.i("ProfileFragment", "++ onViewCreated ++")
 
-        TwitchApiService.endpoints.getStreams().enqueue(object: retrofit2.Callback<StreamsResponse>
-        {
-            override fun onFailure(call: retrofit2.Call<StreamsResponse>, t: Throwable) {
-                Log.w("newsFragment", t)
-            }
-
-            override fun onResponse(
-                call: retrofit2.Call<StreamsResponse>,
-                response: retrofit2.Response<StreamsResponse>
-            ) {
-                if(response.isSuccessful)
-                {
-                    //All Good
-                    Log.i("NewsFragment", response.body()?.toString() ?: "Null body")
-                }
-                else
-                {
-                    //Not OK
-                    Log.w("newsFrragment", response.message())
+        FirebaseFirestore.getInstance().collection("news")
+            .addSnapshotListener { newQuerySnapshot, firebaseFirestoreException ->
+                newQuerySnapshot?.let {
+                    val news = newQuerySnapshot?.toObjects(NewsModel::class.java)
+                    adapter.list = news
+                    adapter.notifyDataSetChanged()
                 }
             }
 
-        })
-        initUI()
+        Log.i("NewsFragment", "++ onViewCreated ++")
+
+        newsR.layoutManager = LinearLayoutManager(requireContext())
+        newsR.adapter = adapter
     }
+
+
 
     override fun onResume() {
         super.onResume()
-        Log.i("ProfileFragment", "++ onResume ++")
+        Log.i("NewsFragment", "++ onResume ++")
         initUI()
     }
 
     override fun onStart() {
         super.onStart()
-        Log.i("ProfileFragment", "++ onStart ++")
+        Log.i("NewsFragment", "++ onStart ++")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("ProfileFragment", "++ onPause ++")
+        Log.i("NewsFragment", "++ onPause ++")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("ProfileFragment", "++ onStop ++")
+        Log.i("NewsFragment", "++ onStop ++")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.i("ProfileFragment", "++ onDestroyView ++")
+        Log.i("NewsFragment", "++ onDestroyView ++")
     }
+
 
     private fun initUI(){
 
