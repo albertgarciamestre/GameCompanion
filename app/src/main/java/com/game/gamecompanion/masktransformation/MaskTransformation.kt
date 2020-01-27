@@ -22,7 +22,10 @@ class MaskTransformation(
     override fun transform(source: Bitmap): Bitmap {
         var width = source.width
         var height = source.height
-        if(widthBorder == 100) height = width
+        if(widthBorder == 100) {
+            height = 500
+            width = 500}
+
         val borderWidth = widthBorder
 
         val output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
