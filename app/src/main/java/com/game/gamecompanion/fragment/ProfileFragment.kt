@@ -173,11 +173,6 @@ class ProfileFragment : Fragment() {
                                 }
                         }
 
-
-
-
-
-
                     }
 
             }

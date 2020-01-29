@@ -21,14 +21,14 @@ class Newsadapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
       val view=LayoutInflater.from(parent.context).inflate(R.layout.item_secret,parent,false)
-        return ViewHolder(view)
+        return Newsadapter.ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
       return list.count()
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Newsadapter.ViewHolder, position: Int) {
        holder.textView.text=list[position].title
         holder.descriptionView.text=list[position].description
         Picasso.get().load(list[position].Url).into(holder.imageView)
