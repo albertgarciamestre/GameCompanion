@@ -2,11 +2,8 @@ package com.game.gamecompanion.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.game.gamecompanion.fragment.ProfileFragment
 import com.game.gamecompanion.R
-import com.game.gamecompanion.fragment.MessagesFragment
-import com.game.gamecompanion.fragment.NewsFragment
-import com.game.gamecompanion.fragment.StreamsFragment
+import com.game.gamecompanion.fragment.*
 import com.game.gamecompanion.masktransformation.MaskTransformation
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
