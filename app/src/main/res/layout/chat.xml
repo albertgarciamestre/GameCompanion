@@ -10,8 +10,8 @@
     android:layout_marginRight="8dp"
     android:layout_marginTop="2dip"
     android:layout_marginBottom="2dip"
-    cardview:cardUseCompatPadding="true"
-        cardview:cardCornerRadius="10sp">
+    chat:cardUseCompatPadding="true"
+        chat:cardCornerRadius="10sp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -42,7 +42,7 @@
                         android:id="@+id/horaMensaje"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="00:00"/>
+                        android:text="time"/>
                 </LinearLayout>
                 <TextView
                     android:id="@+id/mensajeMensaje"
@@ -52,6 +52,6 @@
             </LinearLayout>
         </LinearLayout>
 
-    </androidx.cardview.widget.chat>
+    </androidx.chat.widget.chat>
 
 

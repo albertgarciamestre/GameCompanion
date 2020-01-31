@@ -11,15 +11,13 @@
             android:layout_height="@dimen/button_item_height"
             android:width="@dimen/activity_vertical_margin"
             android:backgroundTint="#803ECCCC"
-            android:drawableLeft="@drawable/common_google_signin_btn_icon_dark_normal"
-            android:text="CHAT0" android:textAlignment="viewStart"/>
+
+            android:text="Message" android:textAlignment="viewStart"/>
     <Button
             android:layout_width="380dp"
             android:layout_height="@dimen/button_item_height"
             android:width="@dimen/activity_vertical_margin"
-            android:backgroundTint="#803ECCCC"
-            android:drawableLeft="@drawable/common_google_signin_btn_icon_dark_normal"
-            android:text="CHAT0" android:textAlignment="viewStart"/>
+            android:text="Message" android:textAlignment="viewStart"/>
 
 
 </LinearLayout>
